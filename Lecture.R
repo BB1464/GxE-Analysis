@@ -2,6 +2,7 @@
 ######     GxE & Stability analysis                  ######
 ###########################################################
 
+
 # Speaker: Oluwafemi Oyedele - MSc Candidate at University of Ibadan
 # Email: oluwafemioyedele908@gmail.com
 
@@ -67,7 +68,7 @@ multcomp::cld(marginal,   # compact letter displays (not recommended) # use pwpm
               Letters=letters,      ### Use lower-case letters for .group
               adjust="none")        ### adjust='none'(Fisher LSD); adjust='Tukey'(Tukey HSD); adjust='bon'(Bonferroni correction)
 
-#Variances for heritability (Quality of the experiment)
+# Variances for heritability (Quality of the experiment)
 model1 <- lmer(Yield ~ (1|Hybrid) + (1|Env) + (1|Hybrid:Env) + (1|Env:Rep), data=data.clean)
 
 ranova(model1) ## Anova-like table of random-effect terms using likelihood ratio tests
