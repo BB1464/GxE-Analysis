@@ -58,9 +58,11 @@ anova(model,type = "III") #Wald test for fixed effects
 library(emmeans)
 BLUES <- emmeans(model, "Hybrid", lmer.df = "satterthwaite")
 
+BLUES
 # Mean separation
 #install.packages("multcompView")
 library(multcompView)
+
 marginal = emmeans(model, "Hybrid")
 multcomp::cld(marginal,   # compact letter displays (not recommended) # use pwpm() or pwpp()
               reversed = T,
@@ -113,9 +115,9 @@ print(matrix(c(mu,VG,VGE,VE,CVe,CVg,CVr,h2)))
 #--------------- Filter for each env or ME ---------------
 #install.packages("dplyr")
 library(dplyr)
-data.clean1 <- data %>%
+data.clean <- data.clean %>%
   filter(Env %in% c("E1"))
-model_env <- lmer(Yield ~ (1|Hybrid) + (1|Rep), data=data.clean1)
+model_env <- lmer(Yield ~ (1|Hybrid) + (1|Rep), data=data.clean)
 #---------------------------------------------
 
 ##################################
@@ -293,3 +295,7 @@ ExamineEnv
 #There are addicional ways to assess GxE and Stability
 #assuming random effects -> Factor analytics models
 #Bayesian models -> Bayesian Finley-Wilkinson Regression
+
+# Added agricolae stability page
+
+https://myaseen208.github.io/agricolae/articles/StabilityAnalysis.html
