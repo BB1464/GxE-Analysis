@@ -46,6 +46,7 @@ library(lmerTest)
 
 # Hybrid as fixed
 model <- lmer(Yield ~ Hybrid + (1|Env) + (1|Hybrid:Env) + (1|Rep:Env), data=data.clean)
+
 anova(model,type = "III") #Wald test for fixed effects
 
 #####################
